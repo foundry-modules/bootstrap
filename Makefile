@@ -84,8 +84,15 @@ bootstrap:
 	echo "/*!\n* Bootstrap.js by @fat & @mdo\n* Copyright 2012 Twitter, Inc.\n* http://www.apache.org/licenses/LICENSE-2.0.txt\n*/" > bootstrap/js/copyright.js
 	cat bootstrap/js/copyright.js bootstrap/js/bootstrap.min.tmp.js > bootstrap/js/bootstrap.min.js
 	rm bootstrap/js/copyright.js bootstrap/js/bootstrap.min.tmp.js
+
 	${MODULARIZE} -n "${MODULE}" ${SOURCE} > ${DEVELOPMENT}
 	${UGLIFYJS} ${DEVELOPMENT} > ${PRODUCTION}
+	mkdir -p ${STYLES_DIR}/bootstrap
+	cp less/*.less ${STYLES_DIR}/bootstrap
+	mkdir -p ${STYLES_DIR}/bootstrap/images
+	cp img/* ${STYLES_DIR}/bootstrap/images
+
+
 #
 # MAKE FOR GH-PAGES 4 FAT & MDO ONLY (O_O  )
 #
