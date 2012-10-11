@@ -14,7 +14,7 @@ DATE=$(shell date +%I:%M%p)
 CHECK=\033[32m✔\033[39m
 HR=\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#
 
-all: bootstrap clean
+all: clean bootstrap clean
 
 #
 # BUILD DOCS
@@ -63,7 +63,7 @@ test:
 #
 
 clean:
-	rm -r bootstrap
+	rm -rf bootstrap
 
 #
 # BUILD SIMPLE BOOTSTRAP DIRECTORY
