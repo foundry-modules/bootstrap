@@ -27,7 +27,7 @@ legend {
   line-height: @baseLineHeight * 2;
   color: @grayDark;
   border: 0;
-  border-bottom: 1px solid #e5e5e5;
+  border-bottom: 1px solid darken(@grayLighter, 3%);
 
   // Small
   small {
@@ -84,7 +84,7 @@ input[type="color"],
   margin-bottom: 9px;
   font-size: @baseFontSize;
   line-height: @baseLineHeight;
-  color: @gray;
+  color: @grayDark;
   .border-radius(@inputBorderRadius);
   vertical-align: middle;
 }
@@ -460,7 +460,7 @@ select:focus:required:invalid {
     text-align: center;
     text-shadow: 0 1px 0 @white;
     background-color: @grayLighter;
-    border: 1px solid #ccc;
+    border: 1px solid @inputBorder;
   }
   .add-on,
   .btn {
