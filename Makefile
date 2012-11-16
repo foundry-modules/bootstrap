@@ -85,13 +85,18 @@ bootstrap:
 	cat bootstrap/js/copyright.js bootstrap/js/bootstrap.min.tmp.js > bootstrap/js/bootstrap.min.js
 	rm bootstrap/js/copyright.js bootstrap/js/bootstrap.min.tmp.js
 
-	${MODULARIZE} -n "${MODULE}" ${SOURCE} > ${DEVELOPMENT}
-	${UGLIFYJS} ${DEVELOPMENT} > ${PRODUCTION}
+	# styles
 	mkdir -p ${STYLES_DIR}/bootstrap
 	cp less/*.less ${STYLES_DIR}/bootstrap
 	mkdir -p ${STYLES_DIR}/bootstrap/images
 	cp img/* ${STYLES_DIR}/bootstrap/images
 
+	# modules/notify
+	cat modules/notify/css/bootstrap-notify.css modules/notify/css/styles/alert-bangtidy.css modules/notify/css/styles/alert-blackgloss.css > ${STYLES_DIR}/bootstrap/notify.less
+	cat modules/notify/js/bootstrap-notify.js >> ${SOURCE}
+
+	${MODULARIZE} -n "${MODULE}" ${SOURCE} > ${DEVELOPMENT}
+	${UGLIFYJS} ${DEVELOPMENT} > ${PRODUCTION}
 
 #
 # MAKE FOR GH-PAGES 4 FAT & MDO ONLY (O_O  )
