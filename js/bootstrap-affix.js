@@ -89,7 +89,7 @@
   * ============== */
 
   $(window).on('load', function () {
-    $('[data-spy="affix"]').each(function () {
+    $('[data-foundry-spy="affix"]').each(function () {
       var $spy = $(this)
         , data = $spy.data()
 

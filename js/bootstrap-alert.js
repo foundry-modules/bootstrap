@@ -26,7 +26,7 @@
  /* ALERT CLASS DEFINITION
   * ====================== */
 
-  var dismiss = '[data-dismiss="alert"]'
+  var dismiss = '[data-foundry-dismiss="alert"]'
     , Alert = function (el) {
         $(el).on('click', dismiss, this.close)
       }
