@@ -1,5 +1,5 @@
 /* ===========================================================
- * bootstrap-tooltip.js v2.2.1
+ * bootstrap-tooltip.js v2.2.2
  * http://twitter.github.com/bootstrap/javascript.html#tooltips
  * Inspired by the original jQuery.tipsy by Jason Frame
  * ===========================================================
@@ -121,8 +121,22 @@
         $tip
           .detach()
           .css({ top: 0, left: 0, display: 'block' })
-          .insertAfter(this.$element)
 
+        switch (this.options.container || 'parent') {
+          case "parent":
+            $tip.insertAfter(this.$element);
+          break;
+          case "body":
+            $tip.appendTo(document.body);
+          break;
+          default:
+            var container = $(this.options.container);
+            if (container.length) {
+              $tip.appendTo(container);
+            } else {
+              $tip.insertAfter(this.$element);
+            }
+        }
         pos = this.getPosition(inside)
 
         actualWidth = $tip[0].offsetWidth
@@ -271,6 +285,7 @@
   , title: ''
   , delay: 0
   , html: false
+  , container: 'parent'
   }
 
 }($);
