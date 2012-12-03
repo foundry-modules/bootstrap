@@ -28,8 +28,8 @@
 
   var toggle = '[data-foundry-toggle=dropdown]'
     , Dropdown = function (element) {
-        var $el = $(element).on('click.dropdown.data-foundry-api', this.toggle)
-        $('html').on('click.dropdown.data-foundry-api', function () {
+        var $el = $(element).on('click._dropdown.data-foundry-api', this.toggle)
+        $('html').on('click._dropdown.data-foundry-api', function () {
           $el.parent().removeClass('open')
         })
       }
@@ -140,9 +140,9 @@
    * =================================== */
 
   $(document)
-    .on('click.dropdown.data-foundry-api touchstart.dropdown.data-foundry-api', clearMenus)
-    .on('click.dropdown touchstart.dropdown.data-foundry-api', '.dropdown form', function (e) { e.stopPropagation() })
-    .on('click.dropdown.data-foundry-api touchstart.dropdown.data-foundry-api'  , toggle, Dropdown.prototype.toggle)
-    .on('keydown.dropdown.data-foundry-api touchstart.dropdown.data-foundry-api', toggle + ', [role=menu]' , Dropdown.prototype.keydown)
+    .on('click._dropdown.data-foundry-api touchstart._dropdown.data-foundry-api', clearMenus)
+    .on('click._dropdown touchstart._dropdown.data-foundry-api', '._dropdown form', function (e) { e.stopPropagation() })
+    .on('click._dropdown.data-foundry-api touchstart._dropdown.data-foundry-api'  , toggle, Dropdown.prototype.toggle)
+    .on('keydown._dropdown.data-foundry-api touchstart._dropdown.data-foundry-api', toggle + ', [role=menu]' , Dropdown.prototype.keydown)
 
 }($);
