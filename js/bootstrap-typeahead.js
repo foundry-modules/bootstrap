@@ -300,7 +300,7 @@
  /*   TYPEAHEAD DATA-API
   * ================== */
 
-  $(document).on('focus.typeahead.data-foundry-api', '[data-foundry-provide="typeahead"]', function (e) {
+  $(document).on('focus.typeahead.data-api', '[data-foundry-provide="typeahead"]', function (e) {
     var $this = $(this)
     if ($this.data('typeahead')) return
     e.preventDefault()

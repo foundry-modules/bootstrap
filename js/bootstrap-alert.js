@@ -83,6 +83,6 @@
  /* ALERT DATA-API
   * ============== */
 
-  $(document).on('click.alert.data-foundry-api', dismiss, Alert.prototype.close)
+  $(document).on('click.alert.data-api', dismiss, Alert.prototype.close)
 
 }($);

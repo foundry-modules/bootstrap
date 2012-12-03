@@ -143,7 +143,7 @@
  /* COLLAPSIBLE DATA-API
   * ==================== */
 
-  $(document).on('click.collapse.data-foundry-api', '[data-foundry-toggle=collapse]', function (e) {
+  $(document).on('click.collapse.data-api', '[data-foundry-toggle=collapse]', function (e) {
     var $this = $(this), href
       , target = $this.attr('data-target')
         || e.preventDefault()
