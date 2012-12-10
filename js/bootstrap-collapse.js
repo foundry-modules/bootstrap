@@ -67,7 +67,7 @@
 
       this.$element[dimension](0)
       $.support.transition && this.$element[dimension](this.$element[0][scroll])
-      this.transition('addClass', $.Event('show'), 'shown')
+      this.transition('addClass', $.Event('bootstrap-show'), 'shown')
     }
 
   , hide: function () {
@@ -75,7 +75,7 @@
       if (this.transitioning) return
       dimension = this.dimension()
       this.reset(this.$element[dimension]())
-      this.transition('removeClass', $.Event('hide'), 'hidden')
+      this.transition('removeClass', $.Event('bootstrap-hide'), 'hidden')
       this.$element[dimension](0)
     }
 
@@ -95,7 +95,7 @@
   , transition: function (method, startEvent, completeEvent) {
       var that = this
         , complete = function () {
-            if (startEvent.type == 'show') that.reset()
+            if (startEvent.type == 'bootstrap-show') that.reset()
             that.transitioning = 0
             that.$element.trigger(completeEvent)
           }
