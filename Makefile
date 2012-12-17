@@ -93,6 +93,7 @@ bootstrap:
 
 	# modules/notify
 	cat modules/notify/css/bootstrap-notify.css modules/notify/css/styles/alert-bangtidy.css modules/notify/css/styles/alert-blackgloss.css > ${STYLES_DIR}/bootstrap/notify.less
+	cat modules/notify/css/styles/alert-blackgloss-animations.css > ${STYLES_DIR}/bootstrap/notify-animations.less
 	cat modules/notify/js/bootstrap-notify.js >> ${SOURCE}
 
 	${MODULARIZE} -n "${MODULE}" ${SOURCE} > ${DEVELOPMENT}
