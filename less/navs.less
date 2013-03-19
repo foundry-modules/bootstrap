@@ -285,11 +285,19 @@
 // Show/hide tabbable areas
 .tab-content > .tab-pane,
 .pill-content > .pill-pane {
-  display: none;
+  display: block !important;
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  z-index: 1;
 }
 .tab-content > .active,
 .pill-content > .active {
-  display: block;
+  display: block !important;
+  visibility: visible;
+  opacity: 1;
+  position: relative;
+  z-index: 2;
 }
 
 
