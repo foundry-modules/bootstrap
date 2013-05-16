@@ -49,10 +49,11 @@
 
       isActive = $parent.hasClass('open')
 
-      clearMenus()
+      clearMenus(e);
 
       if (!isActive) {
-        $parent.toggleClass('open')
+        $parent.toggleClass('open');
+        $parent.trigger("dropdownOpen", [e.target]);
         $this.focus()
       }
 
@@ -99,9 +100,16 @@
 
   }
 
-  function clearMenus() {
+  function clearMenus(e) {
     $(toggle).each(function () {
-      getParent($(this)).removeClass('open')
+      var $parent = getParent($(this)),
+          wasActive = $parent.hasClass("open");
+
+      $parent.removeClass('open');
+
+      if (wasActive) {
+        $parent.trigger("dropdownClose", [e.target]);
+      }
     })
   }
 
