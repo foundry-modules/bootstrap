@@ -1,11 +1,3 @@
-include ../../build/modules.mk
-
-MODULE = bootstrap
-FILENAME = ${MODULE}.js
-SOURCE = bootstrap/js/bootstrap.js
-PRODUCTION = ${PRODUCTION_DIR}/${FILENAME}
-DEVELOPMENT = ${DEVELOPMENT_DIR}/${FILENAME}
-
 BOOTSTRAP = ./docs/assets/css/bootstrap.css
 BOOTSTRAP_LESS = ./less/bootstrap.less
 BOOTSTRAP_RESPONSIVE = ./docs/assets/css/bootstrap-responsive.css
@@ -14,7 +6,28 @@ DATE=$(shell date +%I:%M%p)
 CHECK=\033[32m✔\033[39m
 HR=\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#
 
-all: clean bootstrap clean
+all: clean bootstrap foundry clean
+
+include ../../build/modules.mk
+
+MODULE = bootstrap
+
+SOURCE_SCRIPT_FILES = bootstrap/js/bootstrap.js \
+modules/notify/js/bootstrap-notify.js
+
+NOTIFY_STYLE_FILES = modules/notify/css/bootstrap-notify.css \
+modules/notify/css/styles/alert-bangtidy.css \
+modules/notify/css/styles/alert-blackgloss.css
+
+foundry: join-script-files modularize-script minify-script create-style-folder
+
+	cp -Rp less/*.less ${TARGET_STYLE_FOLDER}
+	mkdir -p ${TARGET_STYLE_FOLDER}/images
+	cp -Rp img/* ${TARGET_STYLE_FOLDER}/images
+
+	# modules/notify
+	cat ${NOTIFY_STYLE_FILES} > ${TARGET_STYLE_FOLDER}/notify.less
+	cat modules/notify/css/styles/alert-blackgloss-animations.css > ${TARGET_STYLE_FOLDER}/notify-animations.less
 
 #
 # BUILD DOCS
@@ -84,20 +97,6 @@ bootstrap:
 	echo "/*!\n* Bootstrap.js by @fat & @mdo\n* Copyright 2012 Twitter, Inc.\n* http://www.apache.org/licenses/LICENSE-2.0.txt\n*/" > bootstrap/js/copyright.js
 	cat bootstrap/js/copyright.js bootstrap/js/bootstrap.min.tmp.js > bootstrap/js/bootstrap.min.js
 	rm bootstrap/js/copyright.js bootstrap/js/bootstrap.min.tmp.js
-
-	# styles
-	mkdir -p ${STYLES_DIR}/bootstrap
-	cp less/*.less ${STYLES_DIR}/bootstrap
-	mkdir -p ${STYLES_DIR}/bootstrap/images
-	cp img/* ${STYLES_DIR}/bootstrap/images
-
-	# modules/notify
-	cat modules/notify/css/bootstrap-notify.css modules/notify/css/styles/alert-bangtidy.css modules/notify/css/styles/alert-blackgloss.css > ${STYLES_DIR}/bootstrap/notify.less
-	cat modules/notify/css/styles/alert-blackgloss-animations.css > ${STYLES_DIR}/bootstrap/notify-animations.less
-	cat modules/notify/js/bootstrap-notify.js >> ${SOURCE}
-
-	${MODULARIZE} -n "${MODULE}" ${SOURCE} > ${DEVELOPMENT}
-	${UGLIFYJS} ${DEVELOPMENT} > ${PRODUCTION}
 
 #
 # MAKE FOR GH-PAGES 4 FAT & MDO ONLY (O_O  )
