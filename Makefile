@@ -19,7 +19,7 @@ NOTIFY_STYLE_FILES = modules/notify/css/bootstrap-notify.css \
 modules/notify/css/styles/alert-bangtidy.css \
 modules/notify/css/styles/alert-blackgloss.css
 
-foundry: join-script-files modularize-script minify-script create-style-folder
+foundry: join-script-files wrap-script resolve-namespace minify-script create-style-folder
 
 	cp -Rp less/*.less ${TARGET_STYLE_FOLDER}
 	mkdir -p ${TARGET_STYLE_FOLDER}/images
