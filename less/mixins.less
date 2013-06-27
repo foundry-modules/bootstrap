@@ -714,3 +714,11 @@
      -o-transition-property: @transition-property;
       transition-property: @transition-property;
 }
+
+.no-transition {
+  .transition(~"none !important");
+}
+
+.no-transition() {
+  .transition(~"none")
+}
