@@ -53,6 +53,8 @@
   Button.prototype.toggle = function () {
     var $parent = this.$element.closest('[data-foundry-toggle="buttons-radio"]')
 
+    if ($parent.hasClass('disabled')) return;
+
     $parent && $parent
       .find('.active')
       .removeClass('active')
