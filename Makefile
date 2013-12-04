@@ -15,7 +15,8 @@ build:
 	grunt dist
 
 fd:
-	cat ${TARGET_SCRIPT_UNCOMPRESSED} | \
+	echo "var jQuery = $$;" | \
+		cat - ${TARGET_SCRIPT_UNCOMPRESSED} | \
 		sed 's/data-dismiss/data-fd-dismiss/g' | \
 		sed 's/data-toggle/data-fd-toggle/g' | \
 		sed 's/data-spy/data-fd-spy/g' | \
@@ -25,10 +26,11 @@ fd:
 		sed 's/'\''.modal'\''/'\''.modal.fd'\''/g' | \
 		sed 's/'\''.dropdown form'\''/'\''.dropdown.fd form'\''/g' \
 		> ${TARGET_SCRIPT_RAW}
+
 	rm -fr ${TARGET_SCRIPT_UNCOMPRESSED}
 	mv ${TARGET_SCRIPT_RAW} ${TARGET_SCRIPT_UNCOMPRESSED}
 
-bootstrap: join-script-files wrap-script resolve-namespace fd minify-script create-style-folder
+bootstrap: join-script-files fd wrap-script resolve-namespace minify-script create-style-folder
 
 	cp -Rp less/*.less ${TARGET_STYLE_FOLDER}
 	mkdir -p ${TARGET_STYLE_FOLDER}/fonts
