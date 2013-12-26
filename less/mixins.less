@@ -857,7 +857,7 @@
   }
 }
 
-.transform(@transform) {
+.transform_(@transform) {
   -webkit-transform: @transform;
    -moz-transform: @transform;
      -o-transform: @transform;
@@ -869,10 +869,6 @@
    -moz-transform-style: @transform-style;
      -o-transform-style: @transform-style;
       transform-style: @transform-style;
-}
-
-.no-transition {
-  .transition(~"none !important");
 }
 
 .no-transition() {
