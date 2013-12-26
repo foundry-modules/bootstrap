@@ -717,7 +717,7 @@
       padding-right: (@grid-gutter-width / 2);
     }
   }
-  .col(1); // kickstart it
+  .col(1, true); // kickstart it
 }
 
 .make-grid-columns-float(@class) {
@@ -734,8 +734,11 @@
       float: left;
     }
   }
-  .col(1); // kickstart it
+  .col(1, true); // kickstart it
 }
+
+.calc-grid(@index, @class, @type) when (@index < 1) {}
+.make-grid(@index, @class, @type) when (@index < 1) {}
 
 .calc-grid(@index, @class, @type) when (@type = width) and (@index > 0) {
   .col-@{class}-@{index} {
@@ -764,7 +767,6 @@
   // next iteration
   .make-grid(@index - 1, @class, @type);
 }
-
 
 // Form validation states
 //
