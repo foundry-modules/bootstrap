@@ -180,7 +180,10 @@
 @media (min-width: @grid-float-breakpoint) {
   .navbar-right {
     .dropdown-menu {
+      // @lessphp fix: This won't compile, need to manually add this in.
       // .pull-right > .dropdown-menu();
+      right: 0;
+      left: auto;
     }
   }
 }
