@@ -46,7 +46,7 @@
     var that = this
     var e    = $.Event('show.bs.modal', { relatedTarget: _relatedTarget })
 
-    this.$element.trigger(e)
+    this.$element.triggerHandler(e)
 
     if (this.isShown || e.isDefaultPrevented()) return
 
@@ -92,7 +92,7 @@
 
     e = $.Event('hide.bs.modal')
 
-    this.$element.trigger(e)
+    this.$element.triggerHandler(e)
 
     if (!this.isShown || e.isDefaultPrevented()) return
 

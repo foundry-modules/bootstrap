@@ -44,7 +44,7 @@
       relatedTarget: previous
     })
 
-    $this.trigger(e)
+    $this.triggerHandler(e)
 
     if (e.isDefaultPrevented()) return
 

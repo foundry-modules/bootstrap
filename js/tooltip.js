@@ -136,7 +136,7 @@
     var e = $.Event('show.bs.'+ this.type)
 
     if (this.hasContent() && this.enabled) {
-      this.$element.trigger(e)
+      this.$element.triggerHandler(e)
 
       if (e.isDefaultPrevented()) return
 
@@ -264,7 +264,7 @@
       if (that.hoverState != 'in') $tip.detach()
     }
 
-    this.$element.trigger(e)
+    this.$element.triggerHandler(e)
 
     if (e.isDefaultPrevented()) return
 

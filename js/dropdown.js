@@ -45,7 +45,7 @@
         $('<div class="dropdown-backdrop"/>').insertAfter($(this)).on('click', clearMenus)
       }
 
-      $parent.trigger(e = $.Event('show.bs.dropdown'))
+      $parent.triggerHandler(e = $.Event('show.bs.dropdown'))
 
       if (e.isDefaultPrevented()) return
 
@@ -95,7 +95,7 @@
     $(toggle).each(function (e) {
       var $parent = getParent($(this))
       if (!$parent.hasClass('open')) return
-      $parent.trigger(e = $.Event('hide.bs.dropdown'))
+      $parent.triggerHandler(e = $.Event('hide.bs.dropdown'))
       if (e.isDefaultPrevented()) return
       $parent.removeClass('open').trigger('hidden.bs.dropdown')
     })
