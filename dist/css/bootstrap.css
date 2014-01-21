@@ -1,6 +1,6 @@
 /*!
  * Bootstrap v3.0.3 (http://getbootstrap.com)
- * Copyright 2013 Twitter, Inc.
+ * Copyright 2014 Twitter, Inc.
  * Licensed under http://www.apache.org/licenses/LICENSE-2.0
  */
 
@@ -851,6 +851,7 @@ pre code {
   clear: both;
 }
 
+true,
 .col-xs-1,
 .col-sm-1,
 .col-md-1,
@@ -905,6 +906,7 @@ pre code {
   padding-left: 15px;
 }
 
+true,
 .col-xs-1,
 .col-xs-2,
 .col-xs-3,
@@ -1125,6 +1127,7 @@ pre code {
 }
 
 @media (min-width: 768px) {
+  true,
   .col-sm-1,
   .col-sm-2,
   .col-sm-3,
@@ -1295,6 +1298,7 @@ pre code {
 }
 
 @media (min-width: 992px) {
+  true,
   .col-md-1,
   .col-md-2,
   .col-md-3,
@@ -1465,6 +1469,7 @@ pre code {
 }
 
 @media (min-width: 1200px) {
+  true,
   .col-lg-1,
   .col-lg-2,
   .col-lg-3,
