@@ -17,14 +17,14 @@ build:
 fd:
 	echo "var jQuery = $$;" | \
 		cat - ${TARGET_SCRIPT_UNCOMPRESSED} | \
-		sed 's/data-dismiss/data-fd-dismiss/g' | \
-		sed 's/data-toggle/data-fd-toggle/g' | \
-		sed 's/data-spy/data-fd-spy/g' | \
-		sed 's/data-ride/data-fd-ride/g' | \
-		sed 's/data-slide/data-fd-slide/g' | \
-		sed 's/data-slide-to/data-fd-slide-to/g' | \
-		sed 's/'\''.modal'\''/'\''.modal.fd'\''/g' | \
-		sed 's/'\''.dropdown form'\''/'\''.dropdown.fd form'\''/g' \
+		sed 's/data-dismiss/data-bs-dismiss/g' | \
+		sed 's/data-toggle/data-bs-toggle/g' | \
+		sed 's/data-spy/data-bs-spy/g' | \
+		sed 's/data-ride/data-bs-ride/g' | \
+		sed 's/data-slide/data-bs-slide/g' | \
+		sed 's/data-slide-to/data-bs-slide-to/g' | \
+		sed 's/'\''.modal'\''/'\''.modal.bs'\''/g' | \
+		sed 's/'\''.dropdown form'\''/'\''.dropdown.bs form'\''/g' \
 		> ${TARGET_SCRIPT_RAW}
 
 	rm -fr ${TARGET_SCRIPT_UNCOMPRESSED}
