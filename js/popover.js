@@ -33,7 +33,7 @@
     placement: 'right'
   , trigger: 'click'
   , content: ''
-  , template: '<div id="fd" class="popover"><div class="arrow"></div><h3 class="popover-title"></h3><div class="popover-content"></div></div>'
+  , template: '<div id="fd" class="fd-popover"><div class="arrow"></div><h3 class="fd-popover-title"></h3><div class="fd-popover-content"></div></div>'
   })
 
 
@@ -53,14 +53,14 @@
     var title   = this.getTitle()
     var content = this.getContent()
 
-    $tip.find('.popover-title')[this.options.html ? 'html' : 'text'](title)
-    $tip.find('.popover-content')[this.options.html ? 'html' : 'text'](content)
+    $tip.find('.fd-popover-title')[this.options.html ? 'html' : 'text'](title)
+    $tip.find('.fd-popover-content')[this.options.html ? 'html' : 'text'](content)
 
     $tip.removeClass('fade top bottom left right in')
 
     // IE8 doesn't accept hiding via the `:empty` pseudo selector, we have to do
     // this manually by checking the contents.
-    if (!$tip.find('.popover-title').html()) $tip.find('.popover-title').hide()
+    if (!$tip.find('.fd-popover-title').html()) $tip.find('.fd-popover-title').hide()
   }
 
   Popover.prototype.hasContent = function () {
