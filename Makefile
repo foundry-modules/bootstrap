@@ -37,7 +37,7 @@ bootstrap: join-script-files fd wrap-script resolve-namespace minify-script crea
 	cp -Rp fonts/* ${TARGET_STYLE_FOLDER}/fonts
 
 	# variables.less
-	cat ${TARGET_STYLE_FOLDER}/variables.less | sed 's/..\/fonts\//fonts\//g' > ${TARGET_STYLE_FOLDER}/variables.raw
+	cat ${TARGET_STYLE_FOLDER}/variables.less | sed 's/..\/fonts\//\@\{global_uri\}\/bootstrap3\/fonts\//g' > ${TARGET_STYLE_FOLDER}/variables.raw
 	rm -fr ${TARGET_STYLE_FOLDER}/variables.less
 	mv ${TARGET_STYLE_FOLDER}/variables.raw ${TARGET_STYLE_FOLDER}/variables.less
 
