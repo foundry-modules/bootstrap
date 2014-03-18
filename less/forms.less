@@ -185,6 +185,8 @@ output {
     margin-bottom: 0;
     font-weight: normal;
     cursor: pointer;
+    font-size: inherit;
+    line-height: @line-height-computed;
   }
 }
 .radio input[type="radio"],
@@ -349,6 +351,7 @@ input[type="checkbox"],
     margin-top: 0;
     margin-bottom: 0;
     padding-top: (@padding-base-vertical + 1); // Default padding plus a border
+    line-height: @line-height-computed;
   }
   // Account for padding we're adding to ensure the alignment and of help text
   // and other content below items
