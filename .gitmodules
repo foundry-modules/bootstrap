@@ -1,6 +1,3 @@
 [submodule "modules/notify"]
 	path = modules/notify
 	url = git@github.com:foundry-modules/bootstrap-notify.git
-[submodule "modules/datetimepicker"]
-	path = modules/datetimepicker
-	url = git@github.com:foundry-modules/bootstrap-datetimepicker.git
