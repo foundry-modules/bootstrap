@@ -157,7 +157,7 @@
       $tip
         .detach()
         .css({ top: 0, left: 0, display: 'block' })
-        .addClass(placement)
+        .addClass(placement.split('-')[0]);
 
       this.options.container ? $tip.appendTo(this.options.container) : $tip.insertAfter(this.$element)
 
@@ -222,7 +222,7 @@
       offset.top = offset.top + height - actualHeight
     }
 
-    if (/bottom|top/.test(placement)) {
+    if (['top', 'bottom'].indexOf(placement.split('-')[0]) === 0) {
       var delta = 0
 
       if (offset.left < 0) {
@@ -236,7 +236,9 @@
       }
 
       this.replaceArrow(delta - width + actualWidth, actualWidth, 'left')
-    } else {
+    }
+
+    if (['left', 'right'].indexOf(placement.split('-')[0]) === 0) {
       this.replaceArrow(actualHeight - height, actualHeight, 'top')
     }
 
@@ -301,7 +303,16 @@
   }
 
   Tooltip.prototype.getCalculatedOffset = function (placement, pos, actualWidth, actualHeight) {
-    return placement == 'bottom' ? { top: pos.top + pos.height,   left: pos.left + pos.width / 2 - actualWidth / 2  } :
+
+    return placement == 'left-top'     ? { top: pos.top, left: pos.left - actualWidth } :
+           placement == 'left-bottom'  ? { top: pos.top + pos.height - actualHeight, left: pos.left - actualWidth } :
+           placement == 'right-top'    ? { top: pos.top, left: pos.left + pos.width } :
+           placement == 'right-bottom' ? { top: pos.top + pos.height - actualHeight, left: pos.left + pos.width } :
+           placement == 'top-left'     ? { top: pos.top - actualHeight, left: pos.left } :
+           placement == 'top-right'    ? { top: pos.top - actualHeight, left: pos.left + pos.width - actualWidth } :
+           placement == 'bottom-left'  ? { top: pos.top + pos.height, left: pos.left } :
+           placement == 'bottom-right' ? { top: pos.top + pos.height, left: pos.left + pos.width - actualWidth } :
+           placement == 'bottom'       ? { top: pos.top + pos.height,   left: pos.left + pos.width / 2 - actualWidth / 2  } :
            placement == 'top'    ? { top: pos.top - actualHeight, left: pos.left + pos.width / 2 - actualWidth / 2  } :
            placement == 'left'   ? { top: pos.top + pos.height / 2 - actualHeight / 2, left: pos.left - actualWidth } :
         /* placement == 'right' */ { top: pos.top + pos.height / 2 - actualHeight / 2, left: pos.left + pos.width   }
