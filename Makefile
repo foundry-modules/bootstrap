@@ -17,12 +17,12 @@ build:
 fd:
 	echo "var jQuery = $$;" | \
 		cat - ${TARGET_SCRIPT_UNCOMPRESSED} | \
-		sed 's/data-dismiss/data-bs-dismiss/g' | \
-		sed 's/data-toggle/data-bs-toggle/g' | \
-		sed 's/data-spy/data-bs-spy/g' | \
-		sed 's/data-ride/data-bs-ride/g' | \
-		sed 's/data-slide/data-bs-slide/g' | \
-		sed 's/data-slide-to/data-bs-slide-to/g' | \
+		sed 's/data-dismiss/data-bp-dismiss/g' | \
+		sed 's/data-toggle/data-bp-toggle/g' | \
+		sed 's/data-spy/data-bp-spy/g' | \
+		sed 's/data-ride/data-bp-ride/g' | \
+		sed 's/data-slide/data-bp-slide/g' | \
+		sed 's/data-slide-to/data-bp-slide-to/g' | \
 		sed 's/'\''.modal'\''/'\''.modal.bs'\''/g' | \
 		sed 's/'\''.dropdown form'\''/'\''.dropdown.bs form'\''/g' \
 		> ${TARGET_SCRIPT_RAW}

@@ -18,7 +18,7 @@ module.exports = function(grunt) {
               ' * Copyright <%= grunt.template.today("yyyy") %> <%= pkg.author %>\n' +
               ' * Licensed under <%= _.pluck(pkg.licenses, "url").join(", ") %>\n' +
               ' */\n\n',
-    jqueryCheck: 'if (window["Foundry/Bootstrap"]) { throw new Error("An instance of Bootstrap has been initialized before this.") } else { window["Foundry/Bootstrap"] = { version: "3.0.3", foundry: jQuery } }\n\n',
+    jqueryCheck: 'if (window["Foundry5/Bootstrap"]) { throw new Error("An instance of Bootstrap has been initialized before this.") } else { window["Foundry5/Bootstrap"] = { version: "3.0.3", foundry: jQuery } }\n\n',
 
     // Task configuration.
     clean: {
